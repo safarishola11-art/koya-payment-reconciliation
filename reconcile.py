@@ -33,7 +33,7 @@ for event in latest.values():
     if event["status"] == "success":
         count += 1
         try:
-            total += Decimal(str(event["amount"]))
+            total += Decimal(str(event["amount"]).replace(",", ""))
         except (KeyError, ValueError):
             raise ValueError("A successful transaction has an invalid amount")
 
